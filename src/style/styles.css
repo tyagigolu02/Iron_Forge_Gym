@@ -1,0 +1,249 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+/* Animation Keyframes */
+@keyframes float {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Base Animations */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* 3D Loading Animations */
+#dumbbell-loader {
+    animation: rotate 8s linear infinite;
+    transform-style: preserve-3d;
+}
+
+#weight-plates-left, #weight-plates-right {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Navigation */
+header {
+    backdrop-filter: blur(10px);
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff4500;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Service Cards */
+.service-card {
+    position: relative;
+    z-index: 1;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05));
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* Filter Buttons */
+.filter-btn.active {
+    background-color: #ff4500;
+    color: white;
+}
+
+/* Class Schedule */
+.class-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.class-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Trainer Cards */
+.trainer-card img {
+    transition: transform 0.3s ease;
+}
+
+.trainer-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Pricing Cards */
+.pricing-card {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.pricing-card .bg-secondary {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 10;
+}
+
+/* Gallery */
+.gallery-item img {
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Back to Top Button */
+#back-to-top {
+    transition: all 0.3s ease-out;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-slider {
+        padding: 0 1rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff4500;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e03d00;
+}
+
+/* Custom height classes for gallery items */
+.gallery-item-height {
+    height: 200px;
+}
+
+/* Animation delay classes */
+.animate-delay-1s {
+    animation-delay: 1s;
+}
+
+.animate-delay-2s {
+    animation-delay: 2s;
+}
